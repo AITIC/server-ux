@@ -1,20 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* base_tier_validation
+#	* base_tier_validation
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-06 13:19+0000\n"
-"Last-Translator: Eric Antones <eantones@nuobit.com>\n"
-"Language-Team: none\n"
-"Language: es\n"
+"POT-Creation-Date: 2020-07-14 17:53+0000\n"
+"PO-Revision-Date: 2020-07-14 17:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"Plural-Forms: \n"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -32,7 +31,7 @@ msgstr "<span class=\"oe_edit_only\">Nombre</span>"
 #: code:addons/base_tier_validation/models/tier_validation.py:282
 #, python-format
 msgid "A review has been requested by %s."
-msgstr "Una revisión fue solicitada por %s."
+msgstr "Una revisión ha sido solicitada por %s."
 
 #. module: base_tier_validation
 #: code:addons/base_tier_validation/models/tier_validation.py:204
@@ -44,7 +43,7 @@ msgstr "Una revisión fue aceptada"
 #: code:addons/base_tier_validation/models/tier_validation.py:255
 #, python-format
 msgid "A review was rejected by %s."
-msgstr "Una revisión fue rechaza por %s."
+msgstr "Una revisión fue rechazada por %s."
 
 #. module: base_tier_validation
 #: code:addons/base_tier_validation/models/tier_validation.py:163
@@ -60,10 +59,9 @@ msgstr "Activo"
 #. module: base_tier_validation
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/systray.xml:45
-#, fuzzy, python-format
-#| msgid "Active"
+#, python-format
 msgid "Activities"
-msgstr "Activo"
+msgstr "Actividades"
 
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_search
@@ -79,13 +77,13 @@ msgstr "Cualquier usuario en el grupo especificado."
 #: model:ir.model.fields,help:base_tier_validation.field_tier_definition__approve_sequence
 #: model:ir.model.fields,help:base_tier_validation.field_tier_review__approve_sequence
 msgid "Approval order by the specified sequence number"
-msgstr ""
+msgstr "Orden de Aprobación por el número de secuencia especificado"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__approve_sequence
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__approve_sequence
 msgid "Approve by sequence"
-msgstr ""
+msgstr "Aprobar por secuencia"
 
 #. module: base_tier_validation
 #: selection:tier.review,status:0
@@ -100,15 +98,15 @@ msgstr "Puede revisar"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,help:base_tier_validation.field_tier_review__can_review
-msgid ""
-"Can review will be marked if the review is pending and the\n"
+msgid "Can review will be marked if the review is pending and the\n"
 "        approve sequence has been achieved"
-msgstr ""
+msgstr "Se puede marcar la revisión si la revisión está pendiente\n"
+"	 y se ha logrado la secuencia de aprobación"
 
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.view_comment_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -120,17 +118,17 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.view_comment_wizard
 #, python-format
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 #. module: base_tier_validation
 #: model:ir.model,name:base_tier_validation.model_comment_wizard
 msgid "Comment Wizard"
-msgstr ""
+msgstr "Asistente de Comentarios"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__comment
 msgid "Comments"
-msgstr ""
+msgstr "Comentarios"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__company_id
@@ -149,7 +147,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__create_date
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__definition_ids
@@ -186,13 +184,6 @@ msgid "Domain"
 msgstr "Dominio"
 
 #. module: base_tier_validation
-#: selection:tier.definition,definition_type:0
-#, fuzzy
-#| msgid "Formula"
-msgid "Domain & Formula"
-msgstr "Fórmula"
-
-#. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__done_by
 msgid "Done By"
 msgstr "Hecho Por"
@@ -205,11 +196,6 @@ msgid "Done by"
 msgstr "Hecho Por"
 
 #. module: base_tier_validation
-#: selection:tier.definition,definition_type:0
-msgid "Formula"
-msgstr "Fórmula"
-
-#. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_search
 msgid "Group By"
 msgstr "Agrupar por"
@@ -217,7 +203,7 @@ msgstr "Agrupar por"
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_validation__has_comment
 msgid "Has Comment"
-msgstr ""
+msgstr "Tiene Comentario"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__id
@@ -225,14 +211,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__id
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_validation__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.model.fields,help:base_tier_validation.field_tier_definition__notify_on_create
-msgid ""
-"If set, all possible reviewers will be notified by email when this "
-"definition is triggered."
-msgstr ""
+msgid "If set, all possible reviewers will be notified by email when this definition is triggered."
+msgstr "Si se establece, todos los posibles revisores serán notificados por correo cuando se active esta definición."
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard____last_update
@@ -247,14 +231,14 @@ msgstr "Última modificación en"
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__write_uid
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr "Última actualización por"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__write_date
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__write_date
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última actualización el"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__model
@@ -283,12 +267,12 @@ msgstr "No hay revisiones a realizar."
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__notify_on_create
 msgid "Notify Reviewers on Creation"
-msgstr ""
+msgstr "Notificar a los revisores sobre la Creación"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__object
 msgid "Object"
-msgstr ""
+msgstr "Objeto"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -297,11 +281,6 @@ msgstr ""
 #, python-format
 msgid "Pending"
 msgstr "Pendiente"
-
-#. module: base_tier_validation
-#: selection:tier.definition,review_type:0
-msgid "Python Expression"
-msgstr "Expresión Python"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__model_id
@@ -338,17 +317,13 @@ msgstr "Solicitado Por"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__res_id
-#, fuzzy
-#| msgid "Reviews"
 msgid "Res"
-msgstr "Revisiones"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__res_model
-#, fuzzy
-#| msgid "Model"
 msgid "Res Model"
-msgstr "Modelo"
+msgstr ""
 
 #. module: base_tier_validation
 #. openerp-web
@@ -414,11 +389,9 @@ msgstr "Esta operación está en proceso de validación."
 #. module: base_tier_validation
 #: code:addons/base_tier_validation/models/tier_validation.py:159
 #, python-format
-msgid ""
-"This action needs to be validated for at least one record. \n"
+msgid "This action needs to be validated for at least one record. \n"
 "Please request a validation."
-msgstr ""
-"Esta acción necesita ser validada para algún registro.\n"
+msgstr "Esta acción necesita ser validada para algún registro.\n"
 "Por favor, solicita una validación."
 
 #. module: base_tier_validation
@@ -458,10 +431,8 @@ msgstr "Usuarios"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__validate_reject
-#, fuzzy
-#| msgid "Validated"
 msgid "Validate Reject"
-msgstr "Validado"
+msgstr "Validar Rechazo"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_validation__validated
@@ -492,7 +463,3 @@ msgstr "Validaciones"
 msgid "e.g. Tier Validation for..."
 msgstr "ej. Validación de Nivel por..."
 
-#, fuzzy
-#~| msgid "Sequence"
-#~ msgid "Approve Sequence"
-#~ msgstr "Secuencia"
