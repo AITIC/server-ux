@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-06 13:19+0000\n"
-"Last-Translator: Eric Antones <eantones@nuobit.com>\n"
+"PO-Revision-Date: 2021-03-10 18:45+0000\n"
+"Last-Translator: Ana Suárez <ana.suarez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -72,10 +72,9 @@ msgstr "Activo"
 #. module: base_tier_validation
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/systray.xml:0
-#, fuzzy, python-format
-#| msgid "Active"
+#, python-format
 msgid "Activities"
-msgstr "Activo"
+msgstr "Actividades"
 
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_search
@@ -91,13 +90,13 @@ msgstr "Cualquier usuario en el grupo especificado."
 #: model:ir.model.fields,help:base_tier_validation.field_tier_definition__approve_sequence
 #: model:ir.model.fields,help:base_tier_validation.field_tier_review__approve_sequence
 msgid "Approval order by the specified sequence number"
-msgstr ""
+msgstr "Órden de aprobación por el número de secuencia especificado"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__approve_sequence
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__approve_sequence
 msgid "Approve by sequence"
-msgstr ""
+msgstr "Aprobar por secuencia"
 
 #. module: base_tier_validation
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_review__status__approved
@@ -116,11 +115,13 @@ msgid ""
 "Can review will be marked if the review is pending and the\n"
 "        approve sequence has been achieved"
 msgstr ""
+"Puede revisar se marcará si la revisión está pendiente y la\n"
+"        secuencia de aprobación se ha alcanzado"
 
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.view_comment_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -132,20 +133,21 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.view_comment_wizard
 #, python-format
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 #. module: base_tier_validation
 #: model:ir.model,name:base_tier_validation.model_comment_wizard
 msgid "Comment Wizard"
-msgstr ""
+msgstr "Wizard Comentario"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__comment
 msgid "Comments"
-msgstr ""
+msgstr "Comentarios"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__company_id
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__company_id
 msgid "Company"
 msgstr "Compañía"
 
@@ -209,6 +211,12 @@ msgid "Done by"
 msgstr "Hecho Por"
 
 #. module: base_tier_validation
+#: code:addons/base_tier_validation/models/tier_review.py:0
+#, fuzzy, python-format
+msgid "Group %s"
+msgstr "Grupo %s"
+
+#. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_search
 msgid "Group By"
 msgstr "Agrupar por"
@@ -216,7 +224,7 @@ msgstr "Agrupar por"
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_validation__has_comment
 msgid "Has Comment"
-msgstr ""
+msgstr "Ha comentado"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__id
@@ -228,10 +236,13 @@ msgstr "ID"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,help:base_tier_validation.field_tier_definition__notify_on_create
+#, fuzzy
 msgid ""
 "If set, all possible reviewers will be notified by email when this "
 "definition is triggered."
 msgstr ""
+"Si está establecido, todos los posibles validadores serán notificados por "
+"email cuando esta definición se ejecute."
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard____last_update
@@ -281,8 +292,9 @@ msgstr "No hay revisiones a realizar."
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__notify_on_create
+#, fuzzy
 msgid "Notify Reviewers on Creation"
-msgstr ""
+msgstr "Notificar validadores en la creación"
 
 #. module: base_tier_validation
 #. openerp-web
@@ -328,14 +340,12 @@ msgstr "Solicitado Por"
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__res_id
 #, fuzzy
-#| msgid "Reviews"
 msgid "Res"
 msgstr "Revisiones"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__res_model
 #, fuzzy
-#| msgid "Model"
 msgid "Res Model"
 msgstr "Modelo"
 
@@ -378,6 +388,7 @@ msgstr "Revisiones"
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__sequence
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
 #, python-format
 msgid "Sequence"
 msgstr "Secuencia"
@@ -405,16 +416,10 @@ msgstr "Esta operación está en proceso de validación."
 #: code:addons/base_tier_validation/models/tier_validation.py:0
 #, python-format
 msgid ""
-"This action needs to be validated for at least one record. \n"
+"This action needs to be validated for at least one record. Reviews pending:\n"
+" - %s \n"
 "Please request a validation."
 msgstr ""
-"Esta acción necesita ser validada para algún registro.\n"
-"Por favor, solicita una validación."
-
-#. module: base_tier_validation
-#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
-msgid "Tier"
-msgstr "Nivel"
 
 #. module: base_tier_validation
 #: model:ir.actions.act_window,name:base_tier_validation.tier_definition_action
@@ -439,21 +444,36 @@ msgstr "Validaciones de Nivel (abstracto)"
 #. module: base_tier_validation
 #: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_accepted
 #, fuzzy
-#| msgid "Tier Validation (abstract)"
 msgid "Tier Validation Accepted Notification"
 msgstr "Validaciones de Nivel (abstracto)"
 
 #. module: base_tier_validation
 #: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_rejected
 #, fuzzy
-#| msgid "Tier Validation (abstract)"
 msgid "Tier Validation Rejected Notification"
 msgstr "Validaciones de Nivel (abstracto)"
+
+#. module: base_tier_validation
+#: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_requested
+msgid "Tier Validation Requested"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.ui.menu,name:base_tier_validation.menu_tier_confirmation
 msgid "Tier Validations"
 msgstr "Validaciones de Nivel"
+
+#. module: base_tier_validation
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__todo_by
+msgid "Todo By"
+msgstr ""
+
+#. module: base_tier_validation
+#. openerp-web
+#: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
+#, python-format
+msgid "Todo by"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.model,name:base_tier_validation.model_res_users
@@ -463,7 +483,6 @@ msgstr "Usuarios"
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_comment_wizard__validate_reject
 #, fuzzy
-#| msgid "Validated"
 msgid "Validate Reject"
 msgstr "Validado"
 
@@ -495,6 +514,16 @@ msgstr "Validaciones"
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_form
 msgid "e.g. Tier Validation for..."
 msgstr "ej. Validación de Nivel por..."
+
+#~ msgid ""
+#~ "This action needs to be validated for at least one record. \n"
+#~ "Please request a validation."
+#~ msgstr ""
+#~ "Esta acción necesita ser validada para algún registro.\n"
+#~ "Por favor, solicita una validación."
+
+#~ msgid "Tier"
+#~ msgstr "Nivel"
 
 #, fuzzy
 #~| msgid "Sequence"

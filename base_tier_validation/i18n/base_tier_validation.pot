@@ -142,6 +142,7 @@ msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__company_id
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__company_id
 msgid "Company"
 msgstr ""
 
@@ -202,6 +203,12 @@ msgstr ""
 #: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
 #, python-format
 msgid "Done by"
+msgstr ""
+
+#. module: base_tier_validation
+#: code:addons/base_tier_validation/models/tier_review.py:0
+#, python-format
+msgid "Group %s"
 msgstr ""
 
 #. module: base_tier_validation
@@ -370,6 +377,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__sequence
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
 #, python-format
 msgid "Sequence"
 msgstr ""
@@ -397,13 +405,9 @@ msgstr ""
 #: code:addons/base_tier_validation/models/tier_validation.py:0
 #, python-format
 msgid ""
-"This action needs to be validated for at least one record. \n"
+"This action needs to be validated for at least one record. Reviews pending:\n"
+" - %s \n"
 "Please request a validation."
-msgstr ""
-
-#. module: base_tier_validation
-#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
-msgid "Tier"
 msgstr ""
 
 #. module: base_tier_validation
@@ -437,8 +441,25 @@ msgid "Tier Validation Rejected Notification"
 msgstr ""
 
 #. module: base_tier_validation
+#: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_requested
+msgid "Tier Validation Requested"
+msgstr ""
+
+#. module: base_tier_validation
 #: model:ir.ui.menu,name:base_tier_validation.menu_tier_confirmation
 msgid "Tier Validations"
+msgstr ""
+
+#. module: base_tier_validation
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__todo_by
+msgid "Todo By"
+msgstr ""
+
+#. module: base_tier_validation
+#. openerp-web
+#: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
+#, python-format
+msgid "Todo by"
 msgstr ""
 
 #. module: base_tier_validation

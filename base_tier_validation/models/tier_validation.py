@@ -5,6 +5,7 @@ from ast import literal_eval
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 
 class TierValidation(models.AbstractModel):
@@ -38,7 +39,9 @@ class TierValidation(models.AbstractModel):
         compute="_compute_reviewer_ids",
         search="_search_reviewer_ids",
     )
-    can_review = fields.Boolean(compute="_compute_can_review")
+    can_review = fields.Boolean(
+        compute="_compute_can_review", search="_search_can_review"
+    )
     has_comment = fields.Boolean(compute="_compute_has_comment")
 
     def _compute_has_comment(self):
@@ -68,6 +71,22 @@ class TierValidation(models.AbstractModel):
         for rec in self:
             rec.can_review = rec._get_sequences_to_approve(self.env.user)
 
+    @api.model
+    def _search_can_review(self, operator, value):
+        res_ids = (
+            self.search(
+                [
+                    ("review_ids.reviewer_ids", "=", self.env.user.id),
+                    ("review_ids.status", "=", "pending"),
+                    ("review_ids.can_review", "=", True),
+                    ("rejected", "=", False),
+                ]
+            )
+            .filtered("can_review")
+            .ids
+        )
+        return [("id", "in", res_ids)]
+
     @api.depends("review_ids")
     def _compute_reviewer_ids(self):
         for rec in self:
@@ -95,6 +114,12 @@ class TierValidation(models.AbstractModel):
 
     @api.model
     def _search_reviewer_ids(self, operator, value):
+        model_operator = "in"
+        if operator == "=" and value in ("[]", False):
+            # Search for records that have not yet been through a validation
+            # process.
+            operator = "!="
+            model_operator = "not in"
         reviews = self.env["tier.review"].search(
             [
                 ("model", "=", self._name),
@@ -103,7 +128,7 @@ class TierValidation(models.AbstractModel):
                 ("status", "=", "pending"),
             ]
         )
-        return [("id", "in", list(set(reviews.mapped("res_id"))))]
+        return [("id", model_operator, list(set(reviews.mapped("res_id"))))]
 
     def _compute_validated_rejected(self):
         for rec in self:
@@ -136,12 +161,12 @@ class TierValidation(models.AbstractModel):
         domain = []
         if tier.definition_domain:
             domain = literal_eval(tier.definition_domain)
-        return self.search([("id", "=", self.id)] + domain)
+        return self.search(expression.AND([[("id", "=", self.id)], domain]))
 
     @api.model
     def _get_under_validation_exceptions(self):
         """Extend for more field exceptions."""
-        return ["message_follower_ids"]
+        return ["message_follower_ids", "access_token"]
 
     def _check_allow_write_under_validation(self, vals):
         """Allow to add exceptions for fields that are allowed to be written
@@ -153,22 +178,23 @@ class TierValidation(models.AbstractModel):
         return True
 
     def write(self, vals):
-        state = self._state_field
         for rec in self:
-            if (
-                getattr(rec, state) in self._state_from
-                and vals.get(self._state_field) in self._state_to
-            ):
+            if rec._check_state_conditions(vals):
                 if rec.need_validation:
                     # try to validate operation
                     reviews = rec.request_validation()
                     rec._validate_tier(reviews)
                     if not self._calc_reviews_validated(reviews):
+                        pending_reviews = reviews.filtered(
+                            lambda r: r.status == "pending"
+                        ).mapped("name")
                         raise ValidationError(
                             _(
                                 "This action needs to be validated for at least "
-                                "one record. \nPlease request a validation."
+                                "one record. Reviews pending:\n - %s "
+                                "\nPlease request a validation."
                             )
+                            % "\n - ".join(pending_reviews)
                         )
                 if rec.review_ids and not rec.validated:
                     raise ValidationError(
@@ -185,9 +211,16 @@ class TierValidation(models.AbstractModel):
                 and not self._check_allow_write_under_validation(vals)
             ):
                 raise ValidationError(_("The operation is under validation."))
-        if vals.get(self._state_field) in self._state_from:
+        if vals.get(self._state_field) in (self._state_from + [self._cancel_state]):
             self.mapped("review_ids").unlink()
         return super(TierValidation, self).write(vals)
+
+    def _check_state_conditions(self, vals):
+        self.ensure_one()
+        return (
+            getattr(self, self._state_field) in self._state_from
+            and vals.get(self._state_field) in self._state_to
+        )
 
     def _validate_tier(self, tiers=False):
         self.ensure_one()
@@ -205,6 +238,9 @@ class TierValidation(models.AbstractModel):
         for review in user_reviews:
             rec = self.env[review.model].browse(review.res_id)
             rec._notify_accepted_reviews()
+
+    def _get_requested_notification_subtype(self):
+        return "base_tier_validation.mt_tier_validation_requested"
 
     def _get_accepted_notification_subtype(self):
         return "base_tier_validation.mt_tier_validation_accepted"
@@ -319,7 +355,8 @@ class TierValidation(models.AbstractModel):
                     partner_ids=users_to_notify.mapped("partner_id").ids
                 )
                 getattr(rec, post)(
-                    subtype="mt_comment", body=rec._notify_requested_review_body()
+                    subtype=self._get_requested_notification_subtype(),
+                    body=rec._notify_requested_review_body(),
                 )
 
     def request_validation(self):

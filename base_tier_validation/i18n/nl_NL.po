@@ -73,7 +73,6 @@ msgstr "Actief"
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/systray.xml:0
 #, fuzzy, python-format
-#| msgid "Active"
 msgid "Activities"
 msgstr "Actief"
 
@@ -146,6 +145,7 @@ msgstr "Opmerkingen"
 
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__company_id
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__company_id
 msgid "Company"
 msgstr "Bedrijf"
 
@@ -207,6 +207,12 @@ msgstr "Gedaan door"
 #, python-format
 msgid "Done by"
 msgstr "Gedaan door"
+
+#. module: base_tier_validation
+#: code:addons/base_tier_validation/models/tier_review.py:0
+#, python-format
+msgid "Group %s"
+msgstr ""
 
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_search
@@ -376,6 +382,7 @@ msgstr "Beoordelingen"
 #. openerp-web
 #: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__sequence
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
 #, python-format
 msgid "Sequence"
 msgstr "Volgorde"
@@ -403,16 +410,10 @@ msgstr "De bewerking is onder validatie."
 #: code:addons/base_tier_validation/models/tier_validation.py:0
 #, python-format
 msgid ""
-"This action needs to be validated for at least one record. \n"
+"This action needs to be validated for at least one record. Reviews pending:\n"
+" - %s \n"
 "Please request a validation."
 msgstr ""
-"Deze actie moet voor ten minste één record gevalideerd worden.\n"
-"Vraag een validatie aan."
-
-#. module: base_tier_validation
-#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__sequence
-msgid "Tier"
-msgstr "Tier"
 
 #. module: base_tier_validation
 #: model:ir.actions.act_window,name:base_tier_validation.tier_definition_action
@@ -437,21 +438,36 @@ msgstr "Tier-validatie (abstract)"
 #. module: base_tier_validation
 #: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_accepted
 #, fuzzy
-#| msgid "Tier Validation (abstract)"
 msgid "Tier Validation Accepted Notification"
 msgstr "Tier-validatie (abstract)"
 
 #. module: base_tier_validation
 #: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_rejected
 #, fuzzy
-#| msgid "Tier Validation (abstract)"
 msgid "Tier Validation Rejected Notification"
 msgstr "Tier-validatie (abstract)"
+
+#. module: base_tier_validation
+#: model:mail.message.subtype,name:base_tier_validation.mt_tier_validation_requested
+msgid "Tier Validation Requested"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.ui.menu,name:base_tier_validation.menu_tier_confirmation
 msgid "Tier Validations"
 msgstr "Tier-validaties"
+
+#. module: base_tier_validation
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__todo_by
+msgid "Todo By"
+msgstr ""
+
+#. module: base_tier_validation
+#. openerp-web
+#: code:addons/base_tier_validation/static/src/xml/tier_review_template.xml:0
+#, python-format
+msgid "Todo by"
+msgstr ""
 
 #. module: base_tier_validation
 #: model:ir.model,name:base_tier_validation.model_res_users
@@ -491,6 +507,16 @@ msgstr "Validaties"
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_definition_view_form
 msgid "e.g. Tier Validation for..."
 msgstr "bijv. Tier validatie voor..."
+
+#~ msgid ""
+#~ "This action needs to be validated for at least one record. \n"
+#~ "Please request a validation."
+#~ msgstr ""
+#~ "Deze actie moet voor ten minste één record gevalideerd worden.\n"
+#~ "Vraag een validatie aan."
+
+#~ msgid "Tier"
+#~ msgstr "Tier"
 
 #~ msgid "Object"
 #~ msgstr "Object"
