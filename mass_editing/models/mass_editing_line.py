@@ -44,8 +44,6 @@ class MassEditingLine(models.Model):
 
     @api.onchange("field_id")
     def _onchange_field_id(self):
-        # if self.field_id and self.field_id.ttype == "many2one":
-        #     self.widget_option = "selection"
         if self.field_id and self.field_id.ttype == "many2many":
             self.widget_option = "many2many_tags"
         elif self.field_id and self.field_id.ttype == "Binary":
