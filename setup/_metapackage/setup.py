@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-barcode_action',
+        'odoo13-addon-base_duplicate_security_group',
         'odoo13-addon-base_export_manager',
         'odoo13-addon-base_import_security_group',
         'odoo13-addon-base_menu_visibility_restriction',
@@ -34,5 +35,6 @@ setuptools.setup(
     classifiers=[
         'Programming Language :: Python',
         'Framework :: Odoo',
+        'Framework :: Odoo :: 13.0',
     ]
 )
