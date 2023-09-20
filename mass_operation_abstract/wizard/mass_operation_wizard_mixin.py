@@ -49,20 +49,17 @@ class MassOperationWizardMixin(models.AbstractModel):
 
         if len(active_ids) == len(remaining_items):
             operation_description_info = _(
-                "The treatment will be processed on the %d selected"
-                " elements." % (len(active_ids))
-            )
+                "The treatment will be processed on the %d selected elements."
+            ) % len(active_ids)
         elif len(remaining_items):
             operation_description_warning = _(
                 "You have selected %d items that can not be processed."
                 " Only %d items will be processed."
-                % (len(active_ids) - len(remaining_items), len(remaining_items))
-            )
+            ) % (len(active_ids) - len(remaining_items), len(remaining_items))
         else:
             operation_description_danger = _(
                 "None of the %d items you have selected can be processed."
-                % (len(active_ids))
-            )
+            ) % len(active_ids)
 
         res.update(
             {
@@ -120,4 +117,4 @@ class MassOperationWizardMixin(models.AbstractModel):
             domain = self.env.context.get("active_domain", [])
         if mass_operation.domain != "[]":
             domain = expression.AND([safe_eval(mass_operation.domain), domain])
-        return SrcModel.search(domain)
+        return SrcModel.with_context(active_test=False).search(domain)
